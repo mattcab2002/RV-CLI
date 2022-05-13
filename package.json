@@ -1,0 +1,37 @@
+{
+  "name": "rv-cli",
+  "version": "1.0.0",
+  "description": "Command line interface for React and Vue.",
+  "main": "src/index.js",
+  "bin": {
+	  "rv":"bin/rv"
+  },
+  "dependencies": {
+    "arg": "^5.0.1",
+    "chalk": "^5.0.1",
+    "esm": "^3.2.25",
+    "inquirer": "^8.2.4",
+    "ncp": "^2.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattcab2002/RV-CLI.git"
+  },
+  "keywords": [
+    "cli",
+    "react",
+    "vue"
+  ],
+  "author": "Matthew Cabral",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mattcab2002/RV-CLI/issues"
+  },
+  "homepage": "https://github.com/mattcab2002/RV-CLI#readme"
+}
