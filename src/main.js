@@ -29,7 +29,6 @@ export async function rv(options) {
       options.template.toLowerCase(),
       options.type.toLowerCase()
       );
-      console.log(templateDir);
     } else {
     templateDir = path.resolve(
       new URL(currentFileUrl).pathname,    

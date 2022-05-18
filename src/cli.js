@@ -24,6 +24,22 @@ function parseArgumentsIntoOptions(rawArgs) {
 			argv: rawArgs.slice(2),
 		}
 		);
+		
+		let possibleCommands = ['create'];
+		let possibleObjects = ['component'];
+		
+		if(Object.values(args)[0].length < 3 || !(args._[0].indexOf(':') > -1)) {
+			//TODO: chalk highlighting of signature
+			console.error('The usage of this CLI is as follows: \n rv <command>:<object> <object-name>');
+			process.exit(1);
+		}
+		
+		if(!(possibleCommands.indexOf(args._[0].split(':')[0]) > -1) || !(possibleObjects.indexOf(args._[0].split(':')[1]) > -1)){
+			//TODO: chalk highlighting possible commands and possible objects
+			console.error('The current commands this CLI supports are ' + possibleCommands.join() + ' and the possible objects are ' + possibleObjects.join());
+			process.exit(1);
+		}
+		
 		return {
 			eject: args['--eject'] || false,
 			command: args._[0].split(':')[0],
@@ -68,7 +84,7 @@ function parseArgumentsIntoOptions(rawArgs) {
 				when: (answers) => answers.framework === 'React' && typeof answers.template === 'string'
 			});
 		}
-
+		
 		if(options.framework === 'React' && !options.template){
 			questions.push({
 				type: 'list',
@@ -111,4 +127,5 @@ function parseArgumentsIntoOptions(rawArgs) {
 		options = await promptForMissingOptions(options);
 		await rv(options);
 	}
+	
 	
